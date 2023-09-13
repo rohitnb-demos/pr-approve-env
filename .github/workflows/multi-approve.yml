@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Example of Multiple Parallel Approvals
+
+# Controls when the workflow will run
+on:
+  pull_request:
+      branches: [ main ]
+  workflow_dispatch:
+
+
+jobs:   
+  ops-approve:
+    environment: ops
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Approved
+        run: echo Ops Approved
+
+  dev-approve:
+    environment: dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Approved
+        run: echo Dev Approved
+        
+  compliance-approve:
+    environment: compliance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Approved
+        run: echo Compliance Approved
+        
